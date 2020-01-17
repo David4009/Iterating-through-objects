@@ -1,0 +1,70 @@
+https://repl.it/@David4009/Make-student-reports-drill
+https://repl.it/@David4009/Enroll-in-summer-school-drill
+https://repl.it/@David4009/find-by-id-drill
+https://repl.it/@David4009/validate-object-keys-drill
+
+function getTokens(rawString) {  
+return rawString.toLowerCase().split(/[ ,!.";:-]+/).filter(Boolean).sort();
+}
+answer: This is a return. It requests all text to lowercase. The split() method is used to split the string into an array of 
+  substrings, and returns the new array based on different separators listed in the parenthesis of the split() function,
+  It removes any falsy items like null, false, '', etc from the string, The filter() method creates an array filled with all 
+  array elements that pass a test (provided as a function). Sort is used to sort the array in ascending order. After this it 
+  returns the object of substrings.
+  
+function mostFrequentWord(text) {
+answer: This is a function that finds the most frequent word in the text, thus the name mostFrequentWord. It accepts a single 
+  parameter, text, and returns the most frequent word per the parameter: text.
+
+let words = getTokens(text);
+answer: let words is a variable that creates an object of words by calling the getTokens() function. a text argument will be 
+  passed to the getTokens() function
+  
+let wordFrequencies = {};
+answer: this section indicates an empty array of objects. The object will hold the words as keys and their frequencies as their 
+values.
+
+for (let i = 0; i < words.length; i++) {
+answer: This is a For Loop. It starts at 0 and goes until the total count of the words. 
+
+if (words[i] in wordFrequencies) {
+answer: This IF statement checks if the word string exists in the wordFrequencies object.
+
+wordFrequencies[words[i]]++;
+answer: if it exists add 1 to the frequency of the word.
+
+} else {
+answer: if not or otherwise.
+ 
+wordFrequencies[words[i]] = 1;
+    }
+  }
+answer: give a frquency of 1 to the word.
+
+let currentMaxKey = Object.keys(wordFrequencies)[0];
+answer: This code declares a variable that holds the first keyword of the wordFrequencies object.
+
+let currentMaxCount = wordFrequencies[currentMaxKey];
+answer: This code declares a variable that will hold the value frequency of the first word initialized.
+
+for (let word in wordFrequencies) {
+answer: This For Loop loops through the wordFrequencies object which holds words as keys and frequencies as values
+
+if (wordFrequencies[word] > currentMaxCount) {
+answer: check each word or key in the wordFrequencies object and compare the them.
+    if the frequency of the current word is greater than the frequency of the first word...
+    
+currentMaxKey = word;
+answer: upate the word with maximum frequency to current word and...
+
+currentMaxCount = wordFrequencies[word];
+    }
+  }
+answer: update currentMaxCount by the current frequency 
+
+return currentMaxKey;
+}
+answer: returns the word with the appears the most among the text.
+
+  
+ 
